@@ -1,23 +1,30 @@
-import logo from './logo.svg';
+// *lib
+
+// *CSS
 import './App.css';
 
+// *component
+import Form from './component/form';
+import ListTodo from './component/list-todo';
+
+// *hooks
+import useTodo from './hooks/todoHook';
+
 function App() {
+  // *hooks
+  const {todo, todoSet} = useTodo();
+  // *state
+
+  // *handler
+  const getTodoHandler = (allTodo) => {
+    todoSet(allTodo);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='container'>
+      <h1>todos</h1>
+      <Form getTodo={getTodoHandler}/>
+      <ListTodo renderTodo={todo}/>
     </div>
   );
 }

@@ -1,31 +1,178 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+
+* {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body {
+  background-color: steelblue;
+  color: #fff;
+  font-family: 'Muli', sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
 }
 
-.App-link {
-  color: #61dafb;
+h1 {
+  color: fff(179, 131, 226);
+  font-size: 10rem;
+  text-align: center;
+  opacity: 0.4;
+  margin: 0;
+}
+
+form {
+  /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); */
+  max-width: 100%;
+  width: 400px;
+}
+
+.form-control {
+  text-align: center;
+}
+
+
+.input {
+  border: none;
+  color: #444;
+  font-size: 2rem;
+  padding: 1rem 2rem;
+  display: block;
+  width: 100%;
+}
+
+.input::placeholder {
+  color: #d5d5d5;
+}
+
+.input:focus {
+  outline-color: lightblue;
+}
+
+.todos {
+  background-color: #fff;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  color: #444343;
+  max-height: 130px;
+  overflow-y: scroll;
+}
+
+.todos li {
+  border-top: 1px solid #e5e5e5;
+  cursor: pointer;
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
+}
+
+.todos li p.completed {
+  color: #b6b6b6;
+  text-decoration: line-through;
+  font-style: italic;
+}
+
+small {
+  color: #b5b5b5;
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.container {
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 20px 40px;
+  border-radius: 5px;
+}
+
+.btn {
+  cursor: pointer;
+  display: inline-block;
+  width: 30%;
+  background: lightblue;
+  padding: 15px;
+  font-family: inherit;
+  font-size: 16px;
+  border: 0;
+  border-radius: 5px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  color: #444343;
+}
+
+.btn:focus {
+  outline: 0;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.check-button {
+  width: 30px;
+  height: 30px;
+
+  background: url('./assets/check-outline.svg');
+  background-size: contain;
+  margin-left: auto;
+  cursor: pointer;
+  border: none;
+}
+
+.check-button:hover {
+  background: url('./assets/check-solid.svg');
+  background-size: contain;
+}
+
+.undo-button {
+  width: 30px;
+  height: 30px;
+
+  background: url('./assets/arrow-undo-outline.svg');
+  background-size: contain;
+  margin-left: auto;
+  cursor: pointer;
+  border: none;
+}
+
+.undo-button:hover {
+  background: url('./assets/arrow-undo.svg');
+  background-size: contain;
+}
+
+.trash-button {
+  width: 30px;
+  height: 30px;
+
+  background: url('./assets/trash-outline.svg');
+  background-size: contain;
+  cursor: pointer;
+  border: none;
+}
+
+.trash-button:hover {
+  background: url('./assets/trash-fill.svg');
+  background-size: contain;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+}
+
+.item p{
+  text-align: left;
+  margin: 0;
+}
+
+.item button{
+  text-align: right;
 }
 
 @keyframes App-logo-spin {
