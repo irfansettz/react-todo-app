@@ -2,7 +2,6 @@
 import Item from "./item";
 
 const ListTodo = ({renderTodo}) => {
-    
     return (
         <>
             <ul className="todos">

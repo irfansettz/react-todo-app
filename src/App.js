@@ -1,31 +1,25 @@
 // *lib
+import { Route, Routes } from 'react-router-dom';
 
 // *CSS
 import './App.css';
 
 // *component
-import Form from './component/form';
-import ListTodo from './component/list-todo';
-
-// *hooks
-import useTodo from './hooks/todoHook';
+import Navbar from './component/navbar';
+import About from './component/pages/about';
+import Home from './component/pages/home';
+import NotFound from './component/pages/notFound';
 
 function App() {
-  // *hooks
-  const {todo, todoSet} = useTodo();
-  // *state
-
-  // *handler
-  const getTodoHandler = (allTodo) => {
-    todoSet(allTodo);
-  }
-
   return (
-    <div className='container'>
-      <h1>todos</h1>
-      <Form getTodo={getTodoHandler}/>
-      <ListTodo renderTodo={todo}/>
-    </div>
+    <>
+      <Navbar/>
+      <Routes>
+        <Route path='/' element={<Home/>} />
+        <Route path='/about' element={<About/>} />
+        <Route path='*' element={<NotFound/>} />
+      </Routes>
+    </>
   );
 }
 
