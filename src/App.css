@@ -36,6 +36,7 @@ form {
 
 .form-control {
   text-align: center;
+  justify-content: center;
 }
 
 
@@ -46,6 +47,7 @@ form {
   padding: 1rem 2rem;
   display: block;
   width: 100%;
+  text-align: center;
 }
 
 .input::placeholder {
@@ -54,6 +56,11 @@ form {
 
 .input:focus {
   outline-color: lightblue;
+}
+
+.form-todo{
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .todos {
