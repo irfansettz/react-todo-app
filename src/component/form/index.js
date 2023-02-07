@@ -1,13 +1,12 @@
 // *lib
 import { nanoid } from "nanoid";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addTodo } from "../../store/reducerTodo";
 
-// *hook
-import useTodo from "../../hooks/todoHook";
-
-const Form = ({getTodo}) => {
+const Form = () => {
     // *hook
-    const {todo, addTodo} = useTodo()
+    const dispatch = useDispatch();
 
     // *state
     const [input, inputSet] = useState('');
@@ -20,13 +19,9 @@ const Form = ({getTodo}) => {
         let id = nanoid(8);
         let newTodo = input;
         let isDone = false;
-        addTodo({id:id, todo:newTodo, isDone:isDone});
+        dispatch(addTodo({id:id, todo:newTodo, isDone:isDone}));
         inputSet('');
     }
-
-    useEffect(()=>{
-        getTodo(todo);
-    }, [todo]);
 
     return (
         <>

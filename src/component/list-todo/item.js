@@ -1,35 +1,37 @@
 // *lib
-import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+
+// *reducer
+import { isDone, deleteTodo } from "../../store/reducerTodo";
 
 const Item = ({item}) => {
-    // *state
-    const [itemState, itemStateSet] = useState({});
+    // *hooks
+    const dispatch = useDispatch();
     // *func
     const changeIsDone = () => {
-        itemStateSet({
-            id: itemState.id,
-            todo: itemState.todo,
-            isDone: !itemState.isDone
-        });
+        dispatch(isDone({
+            id: item.id,
+            todo: item.todo,
+            isDone: !item.isDone
+        }));
     }
 
-    const deleteTodo = () => {
-        itemStateSet({});
+    const delTodo = () => {
+        dispatch(deleteTodo({
+            id: item.id,
+            todo: item.todo,
+            isDone: item.isDone
+        }));
     }
-    // *useEffect
-    useEffect(() => {
-        itemStateSet(item);
-    }, [item]);
     
-    if (Object.keys(itemState).length <= 0) return;
     return (
         <li>
             <div className="item">
                 <div className="inner">
-                    <p className={itemState.isDone? "completed":""}>{itemState.todo}</p>
+                    <p className={item.isDone? "completed":""}>{item.todo}</p>
                 </div>
-                <button onClick={changeIsDone} className={itemState.isDone? "undo-button":"check-button"}></button>
-                <button onClick={deleteTodo} className="trash-button"></button>
+                <button onClick={changeIsDone} className={item.isDone? "undo-button":"check-button"}></button>
+                <button onClick={delTodo} className="trash-button"></button>
             </div>
         </li>
     );
