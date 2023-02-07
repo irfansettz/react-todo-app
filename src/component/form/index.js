@@ -16,10 +16,12 @@ const Form = () => {
             alert('todo tidak boleh kosong');
             return;
         }
-        let id = nanoid(8);
-        let newTodo = input;
-        let isDone = false;
-        dispatch(addTodo({id:id, todo:newTodo, isDone:isDone}));
+
+        dispatch(addTodo({
+            id:nanoid(8), 
+            todo:input, 
+            completed:false}
+        ));
         inputSet('');
     }
 
