@@ -46,7 +46,7 @@ const Form = () => {
                 return dispatch(addTodo({id:nanoid(8), title:item.title, completed:  item.completed}));
             })
         } 
-    } , [load, fetcher]);
+    } , [load, fetcher, fetch, getFetcher, dispatch]);
 
     return (
         <>
