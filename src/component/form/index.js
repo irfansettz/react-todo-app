@@ -19,7 +19,7 @@ const Form = () => {
 
         dispatch(addTodo({
             id:nanoid(8), 
-            todo:input, 
+            title:input, 
             completed:false}
         ));
         inputSet('');

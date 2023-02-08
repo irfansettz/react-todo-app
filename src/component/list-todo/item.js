@@ -11,7 +11,7 @@ const Item = ({item}) => {
     const changeIsDone = () => {
         dispatch(isDone({
             id: item.id,
-            todo: item.todo,
+            title: item.title,
             completed: !item.completed
         }));
     }
@@ -19,7 +19,7 @@ const Item = ({item}) => {
     const delTodo = () => {
         dispatch(deleteTodo({
             id: item.id,
-            todo: item.todo,
+            title: item.title,
             completed: item.completed
         }));
     }
@@ -28,7 +28,7 @@ const Item = ({item}) => {
         <li>
             <div className="item">
                 <div className="inner">
-                    <p className={item.completed? "completed":""}>{item.todo}</p>
+                    <p className={item.completed? "completed":""}>{item.title}</p>
                 </div>
                 <button onClick={changeIsDone} className={item.completed? "undo-button":"check-button"}></button>
                 <button onClick={delTodo} className="trash-button"></button>
