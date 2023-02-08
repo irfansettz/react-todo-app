@@ -2,7 +2,6 @@
 import { nanoid } from "nanoid";
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-
 // *hooks
 import useFetcher from "../../hooks/fetcher";
 // *redux
@@ -12,10 +11,12 @@ const Form = () => {
     // *hook
     const dispatch = useDispatch();
     const {fetcher, load, getFetcher} = useFetcher();
-    const [fetch, setFetch] = useState(true);
-
+    
     // *state
     const [input, inputSet] = useState('');
+    const [fetch, setFetch] = useState(true);
+
+    // *handler
     const submitHandler = (e) => {
         e.preventDefault();
         if (input === '') {
