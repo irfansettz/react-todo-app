@@ -1,12 +1,18 @@
 // *lib
 import { nanoid } from "nanoid";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
+
+// *hooks
+import useFetcher from "../../hooks/fetcher";
+// *redux
 import { addTodo } from "../../store/reducerTodo";
 
 const Form = () => {
     // *hook
     const dispatch = useDispatch();
+    const {fetcher, load, getFetcher} = useFetcher();
+    const [fetch, setFetch] = useState(true);
 
     // *state
     const [input, inputSet] = useState('');
@@ -24,6 +30,22 @@ const Form = () => {
         ));
         inputSet('');
     }
+
+    // *useEffect
+    const lamdaUrl = 'https://ap34h3b3tbwzeslbrwqcsfo2xy0qdffn.lambda-url.ap-southeast-1.on.aws';
+    useEffect(() => {
+        // *get endpoint once only
+        if (fetch) {
+            getFetcher({url: lamdaUrl}); 
+            setFetch(!fetch);
+        }
+        // *add fetcher to redux if load finished
+        if (!load) {
+            [...fetcher].map((item) => {
+                return dispatch(addTodo({id:nanoid(8), title:item.title, completed:  item.completed}));
+            })
+        } 
+    } , [load, fetcher]);
 
     return (
         <>
