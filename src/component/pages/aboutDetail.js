@@ -8,7 +8,7 @@ const AboutDetail = () => {
     
     useEffect(() => {
         fetcher({path: `/users/${params.id}`});
-    },[]);
+    },[data, fetcher, params.id]);
     
     return (
 
@@ -17,7 +17,7 @@ const AboutDetail = () => {
             <div style={{ textAlign:"center" }}>
                 <p> {data?.data?.first_name} {data?.data?.last_name}</p>
                 <p>{data?.data?.email}</p>
-                <img src={data?.data?.avatar} style={{ width:"100px", height:"100px" }}></img>
+                <img alt="profile" src={data?.data?.avatar} style={{ width:"100px", height:"100px" }}></img>
             </div>
         </div>
     );

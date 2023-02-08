@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import useFetcher  from '../../hooks/fetcher';
@@ -8,7 +7,8 @@ const About = () => {
 
     useEffect(() => {
         fetcher({path:'/users'});
-    },[]);
+    },[data, fetcher]);
+
     return (
         <div className="container">
             <h1>About</h1>
